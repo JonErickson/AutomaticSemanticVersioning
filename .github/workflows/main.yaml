@@ -20,4 +20,3 @@ jobs:
           release_branches: main
           pre_release_branches: prerelease
           append_to_pre_release_tag: prerelease
-          dry_run: true
