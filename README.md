@@ -1,0 +1,1 @@
+# Automatic Semantic Versioning
