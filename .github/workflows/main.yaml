@@ -12,19 +12,11 @@ jobs:
     name: Automatic Semantic Versioning
     runs-on: ubuntu-latest
     steps:
-#      - name: Bump Application Version and Tag
-#        uses: mathieudutour/github-tag-action@v5.5
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          default_bump: false
-#          release_branches: main
-#          pre_release_branches: prerelease
-#          append_to_pre_release_tag: prerelease
-      - name:  Bump Application Version and Tag
-        uses: anothrNick/github-tag-action@1.36.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BUMP: none
-          RELEASE_BRANCHES: main
-          PRERELEASE_SUFFIX: prerelease
-          WITH_V: true
+      - name: Bump Application Version and Tag
+        uses: mathieudutour/github-tag-action@v5.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: false
+          release_branches: main
+          pre_release_branches: prerelease
+          append_to_pre_release_tag: prerelease
