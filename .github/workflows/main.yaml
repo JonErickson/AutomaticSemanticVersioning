@@ -13,10 +13,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Bump Application Version and Tag
-        uses: mathieudutour/github-tag-action@v5.5
+        id: auto-version-tag
+        uses: JonErickson/github-tag-action@v5.5.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          default_bump: release
+          default_bump: prerelease
           release_branches: main
           pre_release_branches: prerelease
           append_to_pre_release_tag: prerelease
+          dry_run: false
+      - name: Echo Output
+        if: always()
+        run: |
+          echo "Previous Tag: ${{ steps.auto-version-tag.outputs.previous_tag }}"
+          echo "Previous Version: ${{ steps.auto-version-tag.outputs.previous_version }}"
+          echo "Default Bump: ${{ steps.auto-version-tag.outputs.default_bump }}"
+          echo "Bump: ${{ steps.auto-version-tag.outputs.bump }}"
+          echo "Is Prerelease: ${{ steps.auto-version-tag.outputs.is_prerelease }}"
+          echo "Release Type: ${{ steps.auto-version-tag.outputs.release_type }}"
+          echo "New Tag: ${{ steps.auto-version-tag.outputs.new_tag }}"
+          echo "New Version: ${{ steps.auto-version-tag.outputs.new_version }}"
