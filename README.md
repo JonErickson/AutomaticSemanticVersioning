@@ -2,4 +2,4 @@
 
 Used to test automatic semantic versioning of repository.
 
-Test 43
+Test 44
